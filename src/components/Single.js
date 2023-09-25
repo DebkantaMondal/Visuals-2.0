@@ -131,7 +131,7 @@ function Single() {
     //console.log(vBookmark);
 
     return (
-        pic === "https://raw.githubusercontent.com/DebkantaMondal/blog-photo/main/undefined" ? (<div className="load" style={{ marginTop: "4.5rem" }}><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>) : (
+        pic === `${process.env.REACT_APP_IMAGE_STORAGE_BASE_URI}/undefined` ? (<div className="load" style={{ marginTop: "4.5rem" }}><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>) : (
             <div>
                 <>
                     <Card style={{ border: "0px" }}>
