@@ -2,6 +2,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../App.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import {
+    Link
+} from "react-router-dom";
 
 
 function Carousell({ features, data }) {
@@ -9,30 +12,32 @@ function Carousell({ features, data }) {
     const BaseMedia = `${process.env.REACT_APP_IMAGE_STORAGE_BASE_URI}/`;
 
     return (
-        
-            <div>
-                <Carousel fade={true} pause={false} variant="primary">
-                    {
-                        features.map((val, key) => {
-                            return (
-                                <Carousel.Item interval={2000} key={key}>
-                                    <LazyLoadImage
-                                        className="d-block w-100"
-                                        style={{ width: "100%", height: "20rem", borderRadius: "15px" }}
-                                        src={BaseMedia+data[val].photo}
-                                        alt="First slide"
-                                        effect="blur"
-                                        width="100%"
-                                    />
-                                    <Carousel.Caption>
-                                        <h3>{data[val].title}</h3>
-                                        <p>This is My Photo Appreciation Blogs</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            )
-                        })
-                    }
-                    {/*<Carousel.Item interval={2000}>
+
+        <div>
+            <Carousel fade={true} pause={false} variant="primary">
+                {
+                    features.map((val, key) => {
+                        return (
+
+                            <Carousel.Item interval={2000} key={key}>
+                                <LazyLoadImage
+                                    className="d-block w-100"
+                                    style={{ width: "100%", height: "20rem", borderRadius: "15px" }}
+                                    src={BaseMedia + data[val].photo}
+                                    alt="First slide"
+                                    effect="blur"
+                                    width="100%"
+                                />
+                                <Link to={"/blog/" + data[val]._id + "/show"} style={{ textDecoration: "none" }}><Carousel.Caption>
+                                    <h3>{data[val].title}</h3>
+                                    <p>This is My Photo Appreciation Blogs</p>
+                                </Carousel.Caption></Link>
+                            </Carousel.Item>
+
+                        )
+                    })
+                }
+                {/*<Carousel.Item interval={2000}>
                 <LazyLoadImage
                     className="d-block w-100"
                     style={{width: "100%", height: "20rem", borderRadius: "15px"}}
@@ -46,8 +51,8 @@ function Carousell({ features, data }) {
                     <p>Blogs by Debkanta Mondal</p>
                 </Carousel.Caption>
     </Carousel.Item>*/}
-                </Carousel>
-            </div>);
+            </Carousel>
+        </div>);
 }
 
 export default Carousell;
