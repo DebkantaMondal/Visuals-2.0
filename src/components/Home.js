@@ -32,7 +32,7 @@ function Home(props) {
     return (
         posts === "Null" ? (<div className="load"><div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>) :
             (
-                <>
+                <div className="relative">
                     <MainCard features={features} data={posts} />
                     <center><p className="blogNo"></p></center>
                     <p className="recentBlogTitle">Recent Blogs ({props.no})</p>
@@ -82,7 +82,7 @@ function Home(props) {
                             )
                         })}
                     </div>
-                </>
+                </div>
             )
 
     );

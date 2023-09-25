@@ -6,7 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function Carousell({ features, data }) {
 
-    const BaseMedia = "https://raw.githubusercontent.com/DebkantaMondal/blog-photo/main/";
+    const BaseMedia = `${process.env.REACT_APP_IMAGE_STORAGE_BASE_URI}/`;
 
     return (
         
